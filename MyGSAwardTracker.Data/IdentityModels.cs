@@ -32,7 +32,13 @@ namespace MyGSAwardTracker.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Award> Awards { get; set; } // Added this
+        // Added these dbase tables
+        public DbSet<Idea> Ideas { get; set; }
+        public DbSet<Project> Projects { get; set; } 
+        public DbSet<Hour> Hours { get; set; }
+        public DbSet<Expense> Expenses { get; set; }         
+        public DbSet<Fund> Funds { get; set; }
+        public DbSet<Resource> Resources { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
