@@ -35,6 +35,7 @@ namespace MyGSAwardTracker.Data
         // Added these dbase tables
         public DbSet<Idea> Ideas { get; set; }
         public DbSet<Project> Projects { get; set; } 
+        public DbSet<Task> Tasks { get; set; }
         public DbSet<Hour> Hours { get; set; }
         public DbSet<Expense> Expenses { get; set; }         
         public DbSet<Fund> Funds { get; set; }
