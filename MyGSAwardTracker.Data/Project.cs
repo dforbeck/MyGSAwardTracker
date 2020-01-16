@@ -7,32 +7,36 @@ using System.Threading.Tasks;
 
 namespace MyGSAwardTracker.Data
 {
+    public enum ProjectAwardLevel {Bronze, Silver, Gold}
+
     public class Project
     {
         [Key]
         public int ProjectId { get; set; }
 
         public Guid OwnerId { get; set; }
-        public int IdeaId { get; set; }
 
-        public virtual Idea IdeaTitle { get; set; }
-        
+        public int IdeaId { get; set; }
+        public string IdeaTitle { get; set; }
+
+        [Required]
+        public ProjectAwardLevel LevelOfProjectAward { get; set; }
         public string ProjectTitle { get; set; }
         public string ProjectDescritpion { get; set; }
-        public string Sustainability { get; set; }
-        public DateTimeOffset ProjectStartDate { get; set; }
-        public DateTimeOffset? ProjectCompletionDate { get; set; }
-        public Boolean PriorAward { get; set; }
-        public Boolean PriorAwarApproved { get; set; }
+        public string ProjectSustainabilityAspect { get; set; }
+        public DateTimeOffset ProposedProjectStartDate { get; set; }
+        public DateTimeOffset? ProposedProjectCompletionDate { get; set; }
+        public Boolean CompletedPriorAward { get; set; }
+        public Boolean PriorAwardApproved { get; set; }
         public string JourneyCompleted { get; set; }
         public string OtherJourneyCompleted { get; set; } 
         public string ProjectAdvisor { get; set; }
         public string CouncilMentor { get; set; }
         public string TroopLeader { get; set; }
- 
 
-        public DateTimeOffset DateCreated { get; set; }
-        public DateTimeOffset? DateModified { get; set; }
+        public DateTimeOffset DateProjectCreated { get; set; }
+        public DateTimeOffset? DateProjectModified { get; set; }
 
+        public virtual Idea Idea { get; set; }
     }
 }

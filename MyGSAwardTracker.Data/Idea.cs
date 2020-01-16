@@ -18,8 +18,10 @@ namespace MyGSAwardTracker.Data
         public string IdeaTitle { get; set; }
 
         public string IdeaDescription { get; set; }
-        public DateTimeOffset DateCreated { get; set; }
-        public DateTimeOffset? DateModified { get; set; }
-    
+
+        public DateTimeOffset DateIdeaCreated { get; set; }
+        public DateTimeOffset? DateIdeaModified { get; set; }
+
+        public virtual Project Project { get; set; }
     }
 }
