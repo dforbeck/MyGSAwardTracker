@@ -9,6 +9,8 @@ namespace MyGSAwardTracker.Models.Idea
 {
     public class IdeaCreate
     {
+        public int IdeaId { get; set; }
+
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [Display(Name = "Idea Title")]
@@ -16,6 +18,8 @@ namespace MyGSAwardTracker.Models.Idea
 
         [Display(Name = "Idea Description")]
         public string IdeaDescription { get; set; }
+
+        public DateTimeOffset DateIdeaCreated { get; set; }
 
         public override string ToString() => IdeaTitle;
     }
