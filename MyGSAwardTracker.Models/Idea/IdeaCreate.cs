@@ -5,21 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyGSAwardTracker.Data
+namespace MyGSAwardTracker.Models.Idea
 {
-    public class Idea
+    public class IdeaCreate
     {
-        [Key]
-        public int IdeaId { get; set; }
-
-        public Guid OwnerId { get; set; }
-
         [Required]
+        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
+        [Display(Name = "Idea Title")]
         public string IdeaTitle { get; set; }
 
+        [Display(Name = "Idea Description")]
         public string IdeaDescription { get; set; }
 
-        public DateTimeOffset DateIdeaCreated { get; set; }
-        public DateTimeOffset? DateIdeaModified { get; set; }
+        public override string ToString() => IdeaTitle;
     }
 }

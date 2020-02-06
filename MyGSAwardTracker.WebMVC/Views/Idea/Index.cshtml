@@ -1,0 +1,129 @@
+﻿@model IEnumerable<MyGSAwardTracker.Data.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdeaTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectDescritpion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectSustainabilityAspect)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProposedProjectStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProposedProjectCompletionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompletedPriorAward)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PriorAwardApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JourneyCompleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherJourneyCompleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectAdvisor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CouncilMentor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TroopLeader)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateProjectCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateProjectModified)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OwnerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdeaId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdeaTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectDescritpion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectSustainabilityAspect)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProposedProjectStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProposedProjectCompletionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompletedPriorAward)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PriorAwardApproved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JourneyCompleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherJourneyCompleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectAdvisor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CouncilMentor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TroopLeader)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateProjectCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateProjectModified)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProjectId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectId })
+        </td>
+    </tr>
+}
+
+</table>

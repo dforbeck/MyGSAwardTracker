@@ -5,15 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyGSAwardTracker.Models
+namespace MyGSAwardTracker.Models.Idea
 {
     public class IdeaListItem
-    {
-        [Display(Name = "Idea ID")]
-        public int IdeaId { get; set; }
-
-        [Display(Name = "Idea Title")]
+    {       
         [Required]
+        [Display(Name = "Idea Title")]
         public string IdeaTitle { get; set; }
 
         [Display(Name = "Idea Description")]
@@ -23,14 +20,10 @@ namespace MyGSAwardTracker.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset DateIdeaCreated { get; set; }
 
-        [Display(Name = "Date Idea Changed")]
+        [Display(Name = "Date Idea Changed Last")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset? DateIdeaModified { get; set; }
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-
+        public override string ToString() => IdeaTitle;
     }
 }
