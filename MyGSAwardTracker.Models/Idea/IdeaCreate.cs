@@ -9,6 +9,7 @@ namespace MyGSAwardTracker.Models.Idea
 {
     public class IdeaCreate
     {
+        [Key]
         public int IdeaId { get; set; }
 
         [Required]

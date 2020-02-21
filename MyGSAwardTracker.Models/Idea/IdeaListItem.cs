@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 namespace MyGSAwardTracker.Models.Idea
 {
     public class IdeaListItem
-    {       
+    {
+        public int IdeaId { get; set; }
+
         [Required]
         [Display(Name = "Idea Title")]
         public string IdeaTitle { get; set; }

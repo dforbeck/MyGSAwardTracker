@@ -45,7 +45,8 @@ namespace MyGSAwardTracker.Services
                         .Ideas
                         .Where(e => e.OwnerId == _userId)
                         .Select(e => new IdeaListItem
-                            {                              
+                            {
+                                IdeaId = e.IdeaId,
                                 IdeaTitle = e.IdeaTitle,
                                 IdeaDescription = e.IdeaDescription,
                                 DateIdeaCreated = e.DateIdeaCreated,

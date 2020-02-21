@@ -54,11 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IdeaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MyGSAwardTracker.Data\MyGSAwardTracker.Data.csproj">
+      <Project>{f291be54-99a4-4d63-a53a-8dc0b3c8a3b7}</Project>
+      <Name>MyGSAwardTracker.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyGSAwardTracker.Models\MyGSAwardTracker.Models.csproj">
+      <Project>{ab0f0857-cb3c-4691-ba89-23f53dc6a402}</Project>
+      <Name>MyGSAwardTracker.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
