@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Idea\IdeaCreate.cs" />
+    <Compile Include="Idea\IdeaDetail.cs" />
     <Compile Include="Idea\IdeaListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

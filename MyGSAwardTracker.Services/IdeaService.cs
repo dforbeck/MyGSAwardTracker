@@ -57,5 +57,29 @@ namespace MyGSAwardTracker.Services
             }
         }
 
+        public IdeaDetail GetIdeaById(int ideaId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Ideas
+                         .Single(e => e.IdeaId == ideaId && e.OwnerId == _userId);
+                return
+                    new IdeaDetail
+                    {
+                        IdeaId = entity.IdeadId,
+                        IdeaTitle = entity.IdeaTitle,
+                        IdeaDescription = entity.IdeaDescription,
+                        DateIdeaCreated = entity.DateIdeaCreated,
+                        DateIdeaModified = entity.DateIdeaModified
+                     
+                    };
+
+
+            }   
+
+
+        }
     }
 }

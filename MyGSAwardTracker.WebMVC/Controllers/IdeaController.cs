@@ -1,4 +1,6 @@
-﻿using MyGSAwardTracker.Models.Idea;
+﻿using Microsoft.AspNet.Identity;
+using MyGSAwardTracker.Models.Idea;
+using MyGSAwardTracker.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,10 @@ namespace MyGSAwardTracker.WebMVC.Controllers
     {       
         public ActionResult Index()
         {
-            var model = new IdeaListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new IdeaService(userId);
+            var model = service.GetIdeas();
+
             return View(model);
         }
 
@@ -27,9 +32,35 @@ namespace MyGSAwardTracker.WebMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                return View(model);
             }
+
+            var service = CreateIdeaService();
+
+            if (service.CreateIdea(model))
+            {
+                TempData["SaveResult"] = "Your Idea was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Idea could not be created.");
+
+            return View(model);           
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateIdeaService();
+            var model = svc.GetIdeaById(id);
+
             return View(model);
+        }
+
+        private IdeaService CreateIdeaService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new IdeaService(userId);
+            return service;
         }
     }
 }

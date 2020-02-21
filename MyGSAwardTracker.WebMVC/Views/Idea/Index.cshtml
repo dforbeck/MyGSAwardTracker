@@ -9,6 +9,17 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        @ViewBag.SaveResult
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -65,65 +76,66 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OwnerId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdeaId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdeaTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjectTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjectDescritpion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjectSustainabilityAspect)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProposedProjectStartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProposedProjectCompletionDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CompletedPriorAward)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PriorAwardApproved)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.JourneyCompleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OtherJourneyCompleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjectAdvisor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CouncilMentor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TroopLeader)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateProjectCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateProjectModified)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProjectId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdeaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdeaTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectDescritpion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectSustainabilityAspect)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProposedProjectStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProposedProjectCompletionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompletedPriorAward)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriorAwardApproved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JourneyCompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherJourneyCompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectAdvisor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CouncilMentor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TroopLeader)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateProjectCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateProjectModified)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProjectId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProjectId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProjectId })
+            </td>
+        </tr>
+    }
 
 </table>
