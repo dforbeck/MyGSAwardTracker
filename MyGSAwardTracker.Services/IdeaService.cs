@@ -68,18 +68,14 @@ namespace MyGSAwardTracker.Services
                 return
                     new IdeaDetail
                     {
-                        IdeaId = entity.IdeadId,
+                        IdeaId = entity.IdeaId,
                         IdeaTitle = entity.IdeaTitle,
                         IdeaDescription = entity.IdeaDescription,
                         DateIdeaCreated = entity.DateIdeaCreated,
                         DateIdeaModified = entity.DateIdeaModified
                      
                     };
-
-
             }   
-
-
         }
     }
 }

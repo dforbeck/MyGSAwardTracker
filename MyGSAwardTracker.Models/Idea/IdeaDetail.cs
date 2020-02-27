@@ -21,10 +21,11 @@ namespace MyGSAwardTracker.Models.Idea
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset DateIdeaCreated { get; set; }
 
-
         [Display(Name = "Date Idea Changed Last")]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTimeOffset? DateIdeaModified { get; set; }
+
+        public override string ToString() => $"[{IdeaId} {IdeaTitle}";
 
 
     }
