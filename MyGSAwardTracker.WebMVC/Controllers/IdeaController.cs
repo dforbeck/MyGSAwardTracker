@@ -70,6 +70,32 @@ namespace MyGSAwardTracker.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IdeaEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.IdeaId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateIdeaService();
+
+            if (service.UpdateIdea(model))
+            {
+                TempData["SaveResult"] = "Your Idea was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your Idea could not be updated.")
+
+            return View();
+        }
+
+
 
         private IdeaService CreateIdeaService()
         {
