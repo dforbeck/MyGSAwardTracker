@@ -77,5 +77,22 @@ namespace MyGSAwardTracker.Services
                     };
             }   
         }
+
+        public bool UpdateIdea(IdeaEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Ideas
+                    .Single(e => e.IdeaId == model.IdeaId && e.OwnerId == _userId);
+
+                entity.IdeaTitle = model.IdeaTitle;
+                entity.IdeaDescription = model.IdeaDescription;
+                entity.DateIdeaModified = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

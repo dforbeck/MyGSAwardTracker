@@ -56,6 +56,21 @@ namespace MyGSAwardTracker.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateIdeaService();
+            var detail = service.GetIdeaById(id);
+            var model =
+                new IdeaEdit
+                {
+                    IdeaId = detail.IdeaId,
+                    IdeaTitle = detail.IdeaTitle,
+                    IdeaDescription = detail.IdeaDescription
+                };
+            return View(model);
+        }
+
+
         private IdeaService CreateIdeaService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
