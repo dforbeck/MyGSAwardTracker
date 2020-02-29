@@ -95,7 +95,21 @@ namespace MyGSAwardTracker.WebMVC.Controllers
             return View();
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateIdeaService();
+            var model = svc.GetIdeaById(id);
 
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeletePost(int id)
+        {            
+            return RedirectToAction("Index");
+        }
 
         private IdeaService CreateIdeaService()
         {
